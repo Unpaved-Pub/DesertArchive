@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Rigidbody2D rgb2;
+    public GameObject player;
+    public KeyCode jump;
+    public float Thrust;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey(jump))
+        Jump();
+    }
+
+    public void Jump()
+    {
+        rgb2.AddForce(transform.up * Thrust, ForceMode.Impulse);
     }
 }
